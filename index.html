@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#8b5cf6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>DuoSpace</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2907/2907253.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+      
+      :root {
+        --sat: env(safe-area-inset-top);
+        --sab: env(safe-area-inset-bottom);
+        --sal: env(safe-area-inset-left);
+        --sar: env(safe-area-inset-right);
+      }
+
+      body {
+        font-family: 'Nunito', sans-serif;
+        height: 100%;
+        overscroll-behavior-y: none;
+        padding-left: var(--sal);
+        padding-right: var(--sar);
+      }
+
+      .bg-subtle-mesh {
+        background-color: #f8fafc;
+        background-image: 
+          radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+          radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+          radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+      }
+      
+      .dark .bg-subtle-mesh {
+        background-color: #020617;
+        background-image: 
+          radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+          radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+          radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+      }
+
+      .bg-light-mesh {
+         background-color: #ffffff;
+         background-image:
+          radial-gradient(at 40% 20%, hsla(28,100%,74%,0.1) 0px, transparent 50%),
+          radial-gradient(at 80% 0%, hsla(189,100%,56%,0.1) 0px, transparent 50%),
+          radial-gradient(at 0% 50%, hsla(340,100%,76%,0.1) 0px, transparent 50%);
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .dark .glass {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      
+      .pt-safe { padding-top: var(--sat); }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: { 50: '#f5f3ff', 100: '#ede9fe', 200: '#ddd6fe', 300: '#c4b5fd', 400: '#a78bfa', 500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9', 800: '#5b21b6', 900: '#4c1d95' }
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-light-mesh dark:bg-subtle-mesh transition-colors duration-500 h-full">
+    <div id="root" class="h-full"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+  </html>
